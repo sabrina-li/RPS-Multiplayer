@@ -89,6 +89,9 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
       </cc:License>
     </rdf:RDF>
   </metadata>
+  <view id="icon-clock-view" viewBox="421 479 508 565" />
+   <view id="icon-heart-view" viewBox="0 32 32 32" />
+   <view id="icon-arrow-right-view" viewBox="0 64 32 32" />
   <defs
      id="defs5">
     <marker
