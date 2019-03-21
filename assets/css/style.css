@@ -1,25 +1,25 @@
 
 aside {
+    position: relative; /* If you want text inside of it */
     border: 10px solid #b6bdc3;
-    /* width: 100%; */
-    background: #fff;
+    background-color: red;
+    width: 100%;
+    /* padding-top:100%; */
     /* margin: 0 auto; */
+    
 }
   
   /* Required to make image fluid in IE */
-  
 object {
+    /* max-width: 400px; */
     width: 100%;
+
 }
 .zoomInHand{
     width: 300%;
     animation: zoomin 1s;
 }
-#innersvg{
-    margin: 10px;
-    overflow: hidden;
-    height: 300px;
-}
+
 
 @keyframes zoomin{
     0%{width: 100%}
