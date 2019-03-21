@@ -3,12 +3,11 @@ aside {
     position: relative; /* If you want text inside of it */
     border: 10px solid #b6bdc3;
     /* background-color: red; */
-    width: 80%;
+    /* width: 80%; */
     /* padding-top:100%; */
-    /* margin: 0 auto; */
-    
+    /* margin: 0 auto; */   
 }
-  
+
   /* Required to make image fluid in IE */
 object {
     /* max-width: 400px; */

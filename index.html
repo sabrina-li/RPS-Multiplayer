@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- <link rel="stylesheet" href="assets/css/svgstyle.css" type="text/css"/> -->
 </head>
 <body>
     
     <header>
-        <!-- <h1>Rock Paper Scissors Lizard Spock</h1> -->
-        <!-- <h2>Let's play!</h2> -->
+        <h1>Rock Paper Scissors Lizard Spock</h1>
+        <h2>Let's play!</h2>
         <!-- how to
         When played between two people, each person picks one of five options (usually shown by a hand gesture) at the same time, and a winner is determined.
         Rock or Spock beats Scissors
@@ -23,21 +24,30 @@
         Rock or Scissors beats Lizard -->
     </header>
     <main class="container">
-        <div>
+        <div id="sessionDiv">
             <button id="newGameBtn">Start New Game</button>
             <!-- <button id="joinGameBtn" key="-LaRAD7oDL7TIPmwCxHM">Join Game</button> -->
-            <div id="games"></div>
+            <div id="games">
+                    <p>List of open games:</p>
+            </div>
         </div>
-        <div>
-            List of open games:
+        
+        <div class="row" id = "gameDiv">
+            <aside id="myselection" class="col-md-6">
+                <object id="svg-object" data="assets/images/rpsls.svg" type="image/svg+xml" class="rock"></object>
+            </aside>
+        <aside id="opponent" class="col-md-6">Awaiting</aside>
+    
         </div>
+      
         
     </main>
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
     <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
     <script src="assets/javascript/config.js"></script>
-    <script src="assets/javascript/session.js"></script>
+    
     <script src="assets/javascript/game.js"></script>
+    <script src="assets/javascript/session.js"></script>
 </body>
 </html>

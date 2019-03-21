@@ -1,18 +1,16 @@
 //TODO create private rooms
-firebase.initializeApp(config);
-var database = firebase.database();
-
-var STATE = {OPEN:1, CLOSE:2}
 
 var connectedRef = database.ref(".info/connected");
 var gamesRef = database.ref("/games");
 var playerRef = database.ref("/players");
-var thisPlayer = "";
+var thisPlayer = "anonymouse";//TODO FB log in
 
 
-window.addEventListener('load',function(){
+document.addEventListener('DOMContentLoaded',function(){
    
     // var con = null;
+    document.getElementById("gameDiv").style.visibility = "hidden";
+    
 
 
     connectedRef.on("value", function(snap) {
@@ -20,15 +18,14 @@ window.addEventListener('load',function(){
             var con = playerRef.push(
                 {
                     online:true,
-                    player:"anonymouse"
+                    player:thisPlayer
                 }
             )
-            thisPlayer = con.key;
+            thisPlayer = con.key;//TODO: on lock gin, push to DB, change this player,
+            sessionStorage.setItem("playerKey",thisPlayer);
             console.log("this player id",thisPlayer);
             con.onDisconnect().remove()
-           
             //TODO:remove the games when all user disconnects
-           
         }
     });
 
@@ -37,13 +34,14 @@ window.addEventListener('load',function(){
     
     newGameBtn.addEventListener('click',function(){
         console.log("click");
-        gamesRef.push({
+        let newGameRef = gamesRef.push();
+        newGameRef.set({
             state:STATE.OPEN,
-            player1:thisPlayer
         }).then(function(con){
             //goto game page
-            goToGame(con.key);
+            newGameRef.push({player:thisPlayer});
         });
+        goToGame(newGameRef.key);
     })
 
     gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('child_added',function(snap){
@@ -64,13 +62,20 @@ function appendToGames(val){
     gamebtn.innerHTML=val;
     document.getElementById("games").appendChild(gamebtn);
     gamebtn.addEventListener('click',function(){
-        gamesRef.child(val).update({player2:thisPlayer,state:STATE.CLOSE})
+        gamesRef.child(val).push({player:thisPlayer});
+        gamesRef.child(val).update({state:STATE.CLOSE});  
         goToGame(val);
     })
 }
 function goToGame(key){
+    document.getElementById("gameDiv").removeAttribute("style");
+    console.log("enter game",key);
     sessionStorage.setItem("gameKey", key);
-    window.location.href="game.html";
+    document.getElementById("sessionDiv").style.display = "none";
+    // document.getElementById("gameDiv").removeAttribute("style");
+    addAnimation();
+
+
 }
 
 
