@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
-
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
@@ -18,9 +17,7 @@
    height="600"
    version="1.0"
    sodipodi:docname="Pierre_ciseaux_feuille_l%E9zard_spock.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape"
-   viewBox="0 0 600 600">
-   <!-- <link rel="stylesheet" href="assets/css/svgstyle.css" type="text/css"/> -->
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -246,7 +243,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
      transform="matrix(0,-1,1,0,-1.9253589,604.54023)">
     <g
        transform="matrix(0,0.283393,-0.283393,0,227.46772,497.158)"
-       id="rock" class="hand">
+       id="g3488">
       <path
          transform="matrix(0.874101,0,0,0.874101,-150.697,543.567)"
          d="m 217.68127,-211.35745 c 0,189.896185 -153.941272,343.83746 -343.83746,343.83746 -189.89619,0 -343.83746,-153.941275 -343.83746,-343.83746 0,-189.89619 153.94127,-343.83747 343.83746,-343.83747 189.896188,0 343.83746,153.94128 343.83746,343.83747 z"
@@ -259,8 +256,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
          sodipodi:type="arc" />
       <g
          id="g3267"
-         clip-path="url(#clipPath3453)"
-         style="pointer-events:none">
+         clip-path="url(#clipPath3453)">
         <path
            sodipodi:nodetypes="csssssssssssscscsssssssssscc"
            id="path2432"
@@ -301,7 +297,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        transform="matrix(0,0.283393,-0.283393,0,427.95892,389.90237)"
-       id="papper" class="hand">
+       id="g3479">
       <path
          transform="matrix(0.874101,0,0,0.874101,467.716,442.147)"
          d="m 217.68127,-211.35745 c 0,189.896185 -153.941272,343.83746 -343.83746,343.83746 -189.89619,0 -343.83746,-153.941275 -343.83746,-343.83746 0,-189.89619 153.94127,-343.83747 343.83746,-343.83747 189.896188,0 343.83746,153.94128 343.83746,343.83747 z"
@@ -314,8 +310,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
          sodipodi:type="arc" />
       <g
          id="g3260"
-         clip-path="url(#clipPath3447)"
-         style="pointer-events:none;">
+         clip-path="url(#clipPath3447)">
         <path
            sodipodi:nodetypes="csssssssscsssssscsscssscssssssssc"
            id="path3240"
@@ -350,7 +345,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        transform="matrix(0,0.283393,-0.283393,0,561.15154,23.972742)"
-       id="sissors" class="hand">
+       id="g3472">
       <path
          transform="matrix(0.874101,0,0,0.874101,1073.76,442.147)"
          d="m 217.68127,-211.35745 c 0,189.896185 -153.941272,343.83746 -343.83746,343.83746 -189.89619,0 -343.83746,-153.941275 -343.83746,-343.83746 0,-189.89619 153.94127,-343.83747 343.83746,-343.83747 189.896188,0 343.83746,153.94128 343.83746,343.83747 z"
@@ -363,8 +358,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
          sodipodi:type="arc" />
       <g
          id="g3281"
-         clip-path="url(#clipPath3441)"
-         style="pointer-events:none;">
+         clip-path="url(#clipPath3441)">
         <path
            sodipodi:nodetypes="csssssssssssssssssssssssssssssssscc"
            id="path3275"
@@ -386,7 +380,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        transform="matrix(0,0.283393,-0.283393,0,42.399766,213.24694)"
-       id="lizard" class="hand">
+       id="g3457">
       <path
          sodipodi:type="arc"
          style="fill:#d7f4d7;fill-opacity:1;stroke:#87de87;stroke-width:11.44029999;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -400,8 +394,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
       <g
          id="g3384"
          transform="translate(-227.576,-216.444)"
-         clip-path="url(#clipPath3428)"
-         style="pointer-events:none;">
+         clip-path="url(#clipPath3428)">
         <path
            sodipodi:nodetypes="csssccsssssssssssssss"
            id="path3382"
@@ -430,7 +423,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        transform="matrix(0,0.283393,-0.283393,0,245.69481,-74.870476)"
-       id="spock" class="hand">
+       id="g3465">
       <path
          transform="matrix(0.874101,0,0,0.874101,771.975,-183.687)"
          d="m 217.68127,-211.35745 c 0,189.896185 -153.941272,343.83746 -343.83746,343.83746 -189.89619,0 -343.83746,-153.941275 -343.83746,-343.83746 0,-189.89619 153.94127,-343.83747 343.83746,-343.83747 189.896188,0 343.83746,153.94128 343.83746,343.83747 z"
@@ -444,8 +437,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
       <g
          id="g3409"
          transform="matrix(1.09754,0,0,1.09754,-162.734,-169.734)"
-         clip-path="url(#clipPath3435)"
-         style="pointer-events:none;">
+         clip-path="url(#clipPath3435)">
         <path
            sodipodi:nodetypes="ccsssssscsssssssscssscssssssssscssssssssssssc"
            id="path3403"
@@ -468,8 +460,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12143"
-       style="fill:#87de87;stroke:#87de87"
-       class="arrow">
+       style="fill:#87de87;stroke:#87de87">
       <path
          style="fill:#87de87;fill-opacity:1;fill-rule:evenodd;stroke:#87de87;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 268.71875,138 -66.90625,21.5625 0.4375,1.34375 66.90625,-21.5625 L 268.71875,138 z"
@@ -483,8 +474,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12151"
-       style="fill:#80b3ff;stroke:#80b3ff"
-        class="arrow">
+       style="fill:#80b3ff;stroke:#80b3ff">
       <path
          style="fill:#80b3ff;fill-opacity:1;fill-rule:evenodd;stroke:#80b3ff;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 399.90625,181.84375 -1.125,0.875 35.53125,45.78125 1.125,-0.875 -35.53125,-45.78125 z"
@@ -498,8 +488,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12159"
-       style="fill:#e580ff;stroke:#e580ff"
-        class="arrow">
+       style="fill:#e580ff;stroke:#e580ff">
       <path
          style="fill:#e580ff;fill-opacity:1;fill-rule:evenodd;stroke:#e580ff;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 436.375,365.59375 -34.78125,54.25 1.1875,0.75 34.78125,-54.25 -1.1875,-0.75 z"
@@ -513,8 +502,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12167"
-       style="fill:#ff8080;stroke:#ff8080"
-        class="arrow">
+       style="fill:#ff8080;stroke:#ff8080">
       <path
          style="fill:#ff8080;fill-opacity:1;fill-rule:evenodd;stroke:#ff8080;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 123.375,273.53125 -1.40625,0.0312 1.3125,63.0625 1.40625,-0.0312 -1.3125,-63.0625 z"
@@ -528,8 +516,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12175"
-       style="fill:#ffdd55;stroke:#ffdd55"
-        class="arrow">
+       style="fill:#ffdd55;stroke:#ffdd55">
       <path
          style="fill:#ffdd55;fill-opacity:1;fill-rule:evenodd;stroke:#ffdd55;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 208.5,446.84375 -0.40625,1.375 63.53125,19.34375 0.40625,-1.375 L 208.5,446.84375 z"
@@ -543,8 +530,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12183"
-       style="fill:#e580ff;stroke:#e580ff"
-        class="arrow">
+       style="fill:#e580ff;stroke:#e580ff">
       <path
          style="fill:#e580ff;fill-opacity:1;fill-rule:evenodd;stroke:#e580ff;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 203.59375,211.53125 -0.40625,1.375 201.625,61.5625 0.40625,-1.34375 -201.625,-61.59375 z"
@@ -558,8 +544,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12191"
-       style="fill:#87de87;stroke:#87de87"
-        class="arrow">
+       style="fill:#87de87;stroke:#87de87">
       <path
          style="fill:#87de87;fill-opacity:1;fill-rule:evenodd;stroke:#87de87;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 172.46875,255.46875 -1.125,0.875 132.09375,166.34375 1.09375,-0.875 -132.0625,-166.34375 z"
@@ -573,8 +558,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12199"
-       style="fill:#80b3ff;stroke:#80b3ff" 
-       class="arrow">
+       style="fill:#80b3ff;stroke:#80b3ff">
       <path
          style="fill:#80b3ff;fill-opacity:1;fill-rule:evenodd;stroke:#80b3ff;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="M 299.1875,181.1875 177.5625,353.15625 178.71875,354 300.34375,182 299.1875,181.1875 z"
@@ -588,8 +572,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12207"
-       style="fill:#ffdd55;stroke:#ffdd55"
-        class="arrow">
+       style="fill:#ffdd55;stroke:#ffdd55">
       <path
          style="fill:#ffdd55;fill-opacity:1;fill-rule:evenodd;stroke:#ffdd55;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="m 351.9375,199.21875 -1.40625,0.0312 2.65625,205.375 1.40625,-0.0312 -2.65625,-205.375 z"
@@ -603,8 +586,7 @@ A resolution diagram of the game &quot;Rock, Paper, Scissors, Lizard, Spock&quot
     </g>
     <g
        id="g12215"
-       style="fill:#ff8080;stroke:#ff8080"
-        class="arrow">
+       style="fill:#ff8080;stroke:#ff8080">
       <path
          style="fill:#ff8080;fill-opacity:1;fill-rule:evenodd;stroke:#ff8080;stroke-width:1.41697001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
          d="M 406.8125,323.78125 206.03125,394.40625 206.5,395.75 407.28125,325.125 406.8125,323.78125 z"
