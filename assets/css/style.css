@@ -2,8 +2,8 @@
 aside {
     position: relative; /* If you want text inside of it */
     border: 10px solid #b6bdc3;
-    background-color: red;
-    width: 100%;
+    /* background-color: red; */
+    width: 80%;
     /* padding-top:100%; */
     /* margin: 0 auto; */
     
@@ -13,6 +13,7 @@ aside {
 object {
     /* max-width: 400px; */
     width: 100%;
+    /* width: fit-content; */
 
 }
 .zoomInHand{
