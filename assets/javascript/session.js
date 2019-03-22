@@ -2,32 +2,34 @@
 var connectedRef = database.ref(".info/connected");
 var gamesRef = database.ref("/games");
 var playerRef = database.ref("/players");
-var thisPlayer = "Anonymous";//TODO FB log in
+
+//var thisPlayer = sessionStorage.getItem("playerKey");//TODO FB log in
 
 document.addEventListener('DOMContentLoaded',function(){
    
     //hide main play area
     // document.getElementById("gameDiv").style.visibility = "hidden";
 
-    connectedRef.on("value", function(snap) {
-        if (snap.val()) {
-            var con = playerRef.push();
-            con.onDisconnect().remove()
-            con.set({
-                    online:true,
-                    player:thisPlayer
-                })
-            thisPlayer = con.key;//TODO: on lock gin, push to DB, change this player,
-            sessionStorage.setItem("playerKey",thisPlayer);
-            console.log("this player id",thisPlayer);
+    // connectedRef.on("value", function(snap) {
+    //     if (snap.val()) {
+    //         var con = playerRef.push();
+    //         con.onDisconnect().remove()
+    //         con.set({
+    //                 online:true,
+    //                 player:thisPlayer
+    //             })
+    //         thisPlayer = con.key;//TODO: on lock gin, push to DB, change this player,
+    //         sessionStorage.setItem("playerKey",thisPlayer);
+    //         console.log("this player id",thisPlayer);
             
-            //TODO:remove the games when all user disconnects
-        }
-    });
+    //         //TODO:remove the games when all user disconnects
+    //     }
+    // });
 
     var newGameBtn = document.getElementById('newGameBtn');
     newGameBtn.addEventListener('click',function(){
         console.log("click");
+        let thisPlayer = sessionStorage.getItem("playerKey");
         let newGameRef = gamesRef.push();
         newGameRef.child('/player').onDisconnect().update(
             {[thisPlayer]:null})
@@ -39,11 +41,11 @@ document.addEventListener('DOMContentLoaded',function(){
                 [thisPlayer]:false
             }
         });
-        goToGame(newGameRef.key);
+        goToGame(thisPlayer,newGameRef.key);
     })
 })
 
-function goToGame(key){
+function goToGame(thisPlayer,key){
     document.getElementById("gameDiv").style.visibility = "initial";
     console.log("enter game",key);
     sessionStorage.setItem("gameKey", key);
@@ -88,6 +90,7 @@ function appendToGames(val,player){
     document.getElementById("games").appendChild(gamebtn);
     gamebtn.addEventListener('click',function(){
         // gamesRef.child(val).push({player:thisPlayer});
+        let thisPlayer = sessionStorage.getItem("playerKey");
         gamesRef.child('/'+val+'/player').onDisconnect().update(
             {[thisPlayer]:null})
         gamesRef.child('/'+val).onDisconnect().update(
