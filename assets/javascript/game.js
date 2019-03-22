@@ -54,7 +54,7 @@ function addGameListener(thisGame){
 
         // console.log("on change for this game:",snap.val());
         let val = snap.val();
-        console.log(val);
+        // console.log(val);
         if(val.state == STATE.OPEN){
             document.getElementById("opponent").innerHTML="<h2>Awaiting Other Players to Join</h2>"
         }else if (val.state !== STATE.DONE){

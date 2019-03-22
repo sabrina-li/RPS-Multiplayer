@@ -2,13 +2,12 @@
 var connectedRef = database.ref(".info/connected");
 var gamesRef = database.ref("/games");
 var playerRef = database.ref("/players");
-var thisPlayer = "anonymouse";//TODO FB log in
+var thisPlayer = "Anonymous";//TODO FB log in
 
 document.addEventListener('DOMContentLoaded',function(){
    
     //hide main play area
     // document.getElementById("gameDiv").style.visibility = "hidden";
-
 
     connectedRef.on("value", function(snap) {
         if (snap.val()) {
@@ -52,6 +51,7 @@ function goToGame(key){
     // document.getElementById("gameDiv").removeAttribute("style");
     addAnimation();
     addGameListener(key);
+    chatHandler(thisPlayer,key);
 }
 
 gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('child_added',function(snap){
@@ -67,7 +67,7 @@ gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('value',function(snap){
     if (obj !== null){
         let games=  Object.keys(obj)
         games.forEach(function(game){
-            console.log(obj[game]);
+            // console.log(obj[game]);
             if (obj[game].player==null){
                 console.log("null players!");
                 gamesRef.child("/"+game).remove();

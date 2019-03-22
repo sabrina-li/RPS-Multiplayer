@@ -21,6 +21,16 @@ object {
     width: 300%;
     animation: zoomin 1s;
 }
+#chat{
+    position: relative;
+}
+form{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
 
 
 @keyframes zoomin{
