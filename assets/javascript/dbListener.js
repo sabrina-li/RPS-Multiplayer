@@ -31,14 +31,17 @@ gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('child_removed',function(s
 
 gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('value',function(snap){
     let obj = snap.val()
-    let games=  Object.keys(snap.val())
-    games.forEach(function(game){
-        console.log(obj[game]);
-        if (obj[game].player==null){
-            console.log("null players!");
-            gamesRef.child("/"+game).remove();
-        }
-    })  
+    if (obj !== null){
+        let games=  Object.keys(obj)
+        games.forEach(function(game){
+            console.log(obj[game]);
+            if (obj[game].player==null){
+                console.log("null players!");
+                gamesRef.child("/"+game).remove();
+            }
+        })  
+    }
+    
 })
 
 
