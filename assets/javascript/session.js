@@ -9,10 +9,16 @@ document.addEventListener('DOMContentLoaded',function(){
     newGameBtn.addEventListener('click',function(){
         console.log("click");
         let newGameRef = gamesRef.push();
+        newGameRef.child('/player').onDisconnect().update(
+            {[thisPlayer]:null})
+        newGameRef.onDisconnect().update(
+                {state:STATE.OPEN})
         newGameRef.set({
-            state:STATE.OPEN
+            state:STATE.OPEN,
+            player:{
+                [thisPlayer]:false
+            }
         });
-        newGameRef.child('/player').update({[thisPlayer]:false});
         goToGame(newGameRef.key);
     })
 })
