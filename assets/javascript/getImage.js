@@ -1,30 +1,54 @@
 function getImage(svgObject,hand){
+    xhr = new XMLHttpRequest();
+    xhr.open("GET","assets/images/rpsls.svg",false);
+    // Following line is just to be on the safe side;
+    // not needed if your server delivers SVG with correct MIME type
+    xhr.overrideMimeType("image/svg+xml");
+    xhr.send("");
+    svgObject = xhr.responseXML.documentElement
     
-    //Zoom
-    //center this hand
+    //Zoom//center this hand
     //TODO: animation of zoom //fadeout other elements
-    var handPos = hand.getBoundingClientRect();
-    var boxPos=document.getElementById("myselection").getBoundingClientRect();
+
     
-    // console.log(handPos.top, handPos.height);
-    // console.log(boxPos.height,boxPos.width);
-    svgObject.style.transform=`scale(2) translate(${boxPos.width/2-handPos.left-handPos.width/2}px,
-                                       ${boxPos.height/2-handPos.top-handPos.height/2}px)`;
-    // let test = document.createElement("p");
-    //     test.innerHTML = "test";
-    //     test.style.position = "fixed";
-    //     test.style.top = boxPos.top;
-    //     test.style.left = boxPos.left;
-    //     document.getElementById("gameDiv").appendChild(test);
-    let elements = svgObject.contentDocument.getElementsByClassName("arrow")
+    // svgObject.style.transform = "scale(0.5)";
+    // svgObject.style.transform=`translate(${boxPos.width/2-handPos.left-handPos.width}px,
+                                        // ${boxPos.height/2-handPos.top/2-handPos.height/2}px)`;
+    
+    var handPos;
+    var boxPos;
+
+    let elements = svgObject.getElementsByClassName("arrow")
     for(var i=0;i<elements.length;i++){  
         elements[i].setAttribute("style","display:none");
     }
 
-    let hands = svgObject.contentDocument.getElementsByClassName("hand")
+    let hands = svgObject.getElementsByClassName("hand")
     for(var i=0;i<hands.length;i++){  
-        if(hands[i].id !== hand.id){
+        console.log(hands[i]);
+        if(hands[i].id !== hand){
             hands[i].setAttribute("style","display:none");
+        }else{
+            handPos = hands[i].getBoundingClientRect();
+            hands[i].style.position = "absolute";
+            hands[i].style.top=0;
+            hands[i].style.border="1px solid black";
+            hands[i].setAttribute("transform"," matrix(0, 0.283393, -0.283393, 0, 245.695, -74.8705)");
         }
     }
+    // console.log(svgObject);
+    // let div = document.getElementById("myselection");
+    // let svgobj = div.getElementsByTagName("object")[0]
+    // div.replaceChild(svgObject,svgobj);
+    boxPos = document.getElementById("myselection").getBoundingClientRect();
+    // svgObject.style.position = "abosolute";
+    // svgObject.style.transform=`translate(${boxPos.width/2-handPos.left-handPos.width}px,
+    //     ${boxPos.height/2-handPos.top/2-handPos.height/2}px)`;
+    svgObject.style.border="1px solid red";
+
+    
+    
+    //var x = Math.abs(image.position().left) + container.width() / 2
+    //var y = Math.abs(image.position().top) + container.height() / 2
+    return svgObject;
 }

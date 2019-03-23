@@ -90,7 +90,8 @@ function selectHand(svgObject,hand){
     var gameRef = database.ref("/games/"+thisGame);
     
     // document.getElementById("myselection").innerHTML = 
-    getImage(svgObject,hand);
+    document.getElementById("resultDiv").appendChild(getImage(svgObject,hand.id));
+    
 
     //push this players selection to db
     gameRef.child("player").update({[thisPlayer]:hand.id})
