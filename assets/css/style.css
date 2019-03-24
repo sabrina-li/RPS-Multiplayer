@@ -33,6 +33,21 @@ form{
 }
 
 
+#resultDiv{
+    display: none;
+    position: fixed;
+    top:20%;
+    left: 0;
+    right: 0;
+    padding: 70px 0;
+    height: 10rem;
+    background: white;
+    border: 2px solid gray;
+    text-align: center;
+    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
 @keyframes zoomin{
     0%{width: 100%}
     100%{width: 300%}

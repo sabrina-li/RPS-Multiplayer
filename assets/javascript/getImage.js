@@ -1,4 +1,4 @@
-function getImage(svgObject,hand){
+function getImage(hand){
     xhr = new XMLHttpRequest();
     xhr.open("GET","assets/images/rpsls.svg",false);
     // Following line is just to be on the safe side;
@@ -25,26 +25,41 @@ function getImage(svgObject,hand){
 
     let hands = svgObject.getElementsByClassName("hand")
     for(var i=0;i<hands.length;i++){  
-        console.log(hands[i]);
+        // console.log(hands[i]);
         if(hands[i].id !== hand){
             hands[i].setAttribute("style","display:none");
         }else{
-            handPos = hands[i].getBoundingClientRect();
-            hands[i].style.position = "absolute";
-            hands[i].style.top=0;
-            hands[i].style.border="1px solid black";
-            hands[i].setAttribute("transform"," matrix(0, 0.283393, -0.283393, 0, 245.695, -74.8705)");
+            // console.log(hands[i])
+            switch(hands[i].id){
+                case "spock":
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,400.69481,-75.870476)";
+                    break;
+                case "sissors":
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,571.15154,-163.972742)";
+                    break;
+                case "papper":
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,570.95892,0.90237)"
+                    break;
+                case "rock":
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,607.46772,180.158)"
+                    break;
+                case "lizard":
+                    hands[i].style.transform="matrix(0,-1,1,0,-80.9253589,220.54023)"
+                    break;
+            }
+            
         }
     }
     // console.log(svgObject);
     // let div = document.getElementById("myselection");
     // let svgobj = div.getElementsByTagName("object")[0]
     // div.replaceChild(svgObject,svgobj);
-    boxPos = document.getElementById("myselection").getBoundingClientRect();
+    // boxPos = document.getElementById("myselection").getBoundingClientRect();
     // svgObject.style.position = "abosolute";
     // svgObject.style.transform=`translate(${boxPos.width/2-handPos.left-handPos.width}px,
     //     ${boxPos.height/2-handPos.top/2-handPos.height/2}px)`;
-    svgObject.style.border="1px solid red";
+    // svgObject.style.border="1px solid red";
+    
 
     
     

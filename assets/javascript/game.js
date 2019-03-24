@@ -4,25 +4,18 @@ function addAnimation(){
     var svgDoc = svgObject.contentDocument;
     var element = svgDoc.getElementsByClassName('hand');
 
-    // var test = svgDoc.getElementsByTagName("svg")
-    // //test.style.backgroundColor="red";
-    // console.log(test[0].style.backgroundColor = "red");
-
     console.log("playgame called")
     for(var i=0;i<element.length;i++){  
         //TODO show hint on hover
         element[i].children[0].addEventListener("mouseleave", function (){
-            // console.log("hover",this);
             this.style.strokeWidth = 11;
         })
         element[i].children[0].addEventListener("mouseover", function (){
-            // console.log("over",this);
             this.style.strokeWidth = 30;
         })
         element[i].children[0].addEventListener("click", function (){
-            // document.getElementById('svgitem').innerHTML = thisHand.innerHTML;
             this.style.strokeWidth = 30;
-            selectHand(svgObject,this.parentElement);
+            selectHand(this.parentElement);
         })
         
     }
@@ -31,41 +24,25 @@ function addAnimation(){
 
 
 
-// function waitForPlayer(){
-//     //show waiting page on left
-//     //show game rules when hover
-// }
-
-// function playGame(){
-    
-    
-// }
-// function roomFull(){
-
-// }
-
-
 function addGameListener(thisGame){
-    // var thisPlayer = sessionStorage.getItem("playerKey");
+    var thisPlayer = sessionStorage.getItem("playerKey");
     let gameRef = database.ref("/games/"+thisGame);
     let myhand = false;
     let opponenthand= false;
     gameRef.on('value',function(snap){
 
-        // console.log("on change for this game:",snap.val());
         let val = snap.val();
-        // console.log(val);
+        
         if(val.state == STATE.OPEN){
             document.getElementById("opponent").innerHTML="<h2>Awaiting Other Players to Join</h2>"
         }else if (val.state !== STATE.DONE){
             playerArr = Object.keys(val.player)
             playerArr.forEach(function(pID){
-                if(pID !== thisPlayer){
+                if(thisPlayer && pID !== thisPlayer){
                     opponenthand = val.player[pID];
                 }else{
                     myhand=val.player[pID]
                 }
-                // gameRef.child("/player").update({[pID]:false});
             });
             
             if(opponenthand == false){
@@ -74,7 +51,11 @@ function addGameListener(thisGame){
                 document.getElementById("opponent").innerHTML="<h2>Hurry up! The Other Player Has Chosen</h2>"
             }
             if( opponenthand !== false && myhand !== false){
-                document.getElementById("opponent").innerHTML="<h2>"+opponenthand+"</h2>";
+                document.getElementById("opponent").innerHTML="<h2>Opponent Chose: <br>"+opponenthand+"</h2>";
+                let w = document.getElementById("opponent").offsetWidth
+                document.getElementById("opponent").style.maxHeight=w+"px";
+                document.getElementById("opponent").appendChild(getImage(opponenthand));
+                
                 compareHands(myhand,opponenthand);
                 gameRef.update({state:STATE.DONE});
             }
@@ -84,18 +65,19 @@ function addGameListener(thisGame){
 }
 
 
-function selectHand(svgObject,hand){
+function selectHand(hand){
     var thisPlayer = sessionStorage.getItem("playerKey");
     var thisGame = sessionStorage.getItem("gameKey");
     var gameRef = database.ref("/games/"+thisGame);
     
-    // document.getElementById("myselection").innerHTML = 
-    document.getElementById("resultDiv").appendChild(getImage(svgObject,hand.id));
+    document.getElementById("myselection").innerHTML="<h2>You Chose: <br>"+hand.id+"</h2>";
+    let w = document.getElementById("myselection").offsetWidth
+    document.getElementById("myselection").style.maxHeight=w+"px";
+    document.getElementById("myselection").appendChild(getImage(hand.id));
     
 
     //push this players selection to db
     gameRef.child("player").update({[thisPlayer]:hand.id})
-    //gameRef.child("player").update({state:STATE.WAITING});
 }
 
 
@@ -114,28 +96,38 @@ function removeFromGame(val){
 function compareHands(myhand,opponenthand){
     switch (myhand){
         case "rock":
-            if (opponenthand == "sissors" || opponenthand == "lizard"){handleWin(myhand,opponenthand);}
-            else if (opponenthand == "papper" || opponenthand == "lizard"){handleLose(myhand,opponenthand);}
+            if (opponenthand == "sissors"){handleWin(RESULTS.RS);}
+            else if (opponenthand == "lizard"){handleWin(RESULTS.RL);}
+            else if (opponenthand == "papper"){handleLose(RESULTS.PR);}
+            else if (opponenthand == "Spock"){handleLose(RESULTS.SpR);}
             else{handleTie()}
             break;
         case "papper":
-            if (opponenthand == "rock" || opponenthand == "spock"){handleWin(myhand,opponenthand);}
-            else if (opponenthand == "sissors" || opponenthand == "lizard"){handleLose(myhand,opponenthand);}
+            if (opponenthand == "rock"){handleWin(RESULTS.PR);}
+            else if(opponenthand == "spock"){handleWin(RESULTS.PSp);}
+            else if (opponenthand == "sissors"){handleLose(RESULTS.SP);}
+            else if (opponenthand == "lizard"){handleLose(RESULTS.LP);}
             else{handleTie()}
             break;
         case "sissors":
-            if (opponenthand == "papper" || opponenthand == "lizard"){handleWin(myhand,opponenthand);}
-            else if (opponenthand == "spock" || opponenthand == "rock"){handleLose(myhand,opponenthand);}
+            if (opponenthand == "papper"){handleWin(RESULTS.RS);}
+            else if (opponenthand == "lizard"){handleWin(RESULTS.SL);}
+            else if (opponenthand == "spock"){handleLose(RESULTS.SpS);}
+            else if (opponenthand == "rock"){handleLose(RESULTS);}
             else{handleTie()}
             break;
         case "lizard":
-            if (opponenthand == "papper" || opponenthand == "spock"){handleWin(myhand,opponenthand);}
-            else if (opponenthand == "rock" || opponenthand == "sissors"){handleLose(myhand,opponenthand);}
+            if (opponenthand == "papper"){handleWin(RESULTS.LP);}
+            else if (opponenthand == "spock"){handleWin(RESULTS.LSp);}
+            else if (opponenthand == "rock"){handleLose(RESULTS.RL);}
+            else if (opponenthand == "sissors"){handleLose(RESULTS.SL);}
             else{handleTie()}
             break;
         case "spock":
-            if (opponenthand == "sissors" || opponenthand == "rock"){handleWin(myhand,opponenthand);}
-            else if (opponenthand == "paper" || opponenthand == "lizard"){handleLose(myhand,opponenthand);}
+            if (opponenthand == "sissors"){handleWin(RESULTS.SpS);}
+            else if (opponenthand == "rock"){handleWin(RESULTS.SpR);}
+            else if (opponenthand == "papper"){handleLose(RESULTS.PSp);}
+            else if (opponenthand == "lizard"){handleLose(RESULTS.LSp);}
             else{handleTie()}
             break;
         default:
@@ -145,18 +137,21 @@ function compareHands(myhand,opponenthand){
     
 }
 
-function handleWin(myhand,opponenthand){
+function handleWin(result){
     let d = document.createElement("p");
-    d.innerHTML="<p>win</p>";
+    d.innerHTML="You Win!!!!" + result;
     document.getElementById("resultDiv").appendChild(d);
+    document.getElementById("resultDiv").style.display = "initial";
 }
-function handleLose(myhand,opponenthand){
+function handleLose(result){
     let d = document.createElement("p");
-    d.innerHTML="<p>lose</p>";
+    d.innerHTML="You Lose!!!!" + result;
     document.getElementById("resultDiv").appendChild(d);
+    document.getElementById("resultDiv").style.display = "initial";
 }
-function handleTie(myhand,opponenthand){
+function handleTie(){
     let d = document.createElement("p");
-    d.innerHTML="<p>tie</p>";
+    d.innerHTML="You Tied!!!!";
     document.getElementById("resultDiv").appendChild(d);
+    document.getElementById("resultDiv").style.display = "initial";
 }

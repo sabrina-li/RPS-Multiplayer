@@ -97,7 +97,7 @@ function appendToGames(val,player){
                 {state:STATE.OPEN})
         gamesRef.child('/'+val+'/player').update({[thisPlayer]:false});
         gamesRef.child(val).update({state:STATE.CLOSE});  
-        goToGame(val);
+        goToGame(thisPlayer,val);
     })
 
 }
