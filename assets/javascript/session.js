@@ -53,6 +53,7 @@ function goToGame(thisPlayer,key){
     // document.getElementById("gameDiv").removeAttribute("style");
     addAnimation();
     addGameListener(key);
+    addUserListner();
     chatHandler(thisPlayer,key);
 }
 

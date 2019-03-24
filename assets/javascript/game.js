@@ -46,12 +46,13 @@ function addGameListener(thisGame){
             });
             
             if(opponenthand == false){
-                document.getElementById("opponent").innerHTML="<h2>Awaiting Other Player to Choose</h2>"
+                document.getElementById("opponent").innerHTML="<p>Awaiting Other Player to Choose</p>"
             }else{
                 document.getElementById("opponent").innerHTML="<h2>Hurry up! The Other Player Has Chosen</h2>"
             }
             if( opponenthand !== false && myhand !== false){
-                document.getElementById("opponent").innerHTML="<h2>Opponent Chose: <br>"+opponenthand+"</h2>";
+                document.getElementById("opponenttitle").innerHTML="<p>Opponent Chose: <br>"+opponenthand+"</p>";
+                document.getElementById("opponent").innerHTML="";
                 let w = document.getElementById("opponent").offsetWidth
                 document.getElementById("opponent").style.maxHeight=w+"px";
                 document.getElementById("opponent").appendChild(getImage(opponenthand));
@@ -64,13 +65,25 @@ function addGameListener(thisGame){
     })
 }
 
+function addUserListner(){
+
+var thisPlayer = sessionStorage.getItem("playerKey");
+var playerRef  = database.ref('/players/'+thisPlayer);
+playerRef.on('value',function(snap){
+    document.getElementById("wincount").innerHTML = snap.wins;
+    document.getElementById("losecount").innerHTML = snap.wins;
+    document.getElementById("tiecount").innerHTML = snap.wins;
+
+})
+}
 
 function selectHand(hand){
     var thisPlayer = sessionStorage.getItem("playerKey");
     var thisGame = sessionStorage.getItem("gameKey");
     var gameRef = database.ref("/games/"+thisGame);
     
-    document.getElementById("myselection").innerHTML="<h2>You Chose: <br>"+hand.id+"</h2>";
+    document.getElementById("myselectiontitle").innerHTML="<p>You Chose: <br>"+hand.id+"</p>";
+    document.getElementById("myselection").innerHTML="";
     let w = document.getElementById("myselection").offsetWidth
     document.getElementById("myselection").style.maxHeight=w+"px";
     document.getElementById("myselection").appendChild(getImage(hand.id));
@@ -138,20 +151,61 @@ function compareHands(myhand,opponenthand){
 }
 
 function handleWin(result){
+    var thisPlayer = sessionStorage.getItem("playerKey");
+    let winRef  = database.ref('/players/'+thisPlayer).child("wins");
+    winRef.transaction(function(wins){
+        return (wins||0) +1;
+    })
+    //     function(wins) {
+    //     // console.log(player.wins);
+    //     if (player.wins) {
+    //         wins = player.wins + 1;
+    //     }else{
+    //         wins=1;
+    //     }
+    //     return player.update({wins:wins});
+    //   });
     let d = document.createElement("p");
     d.innerHTML="You Win!!!!" + result;
     document.getElementById("resultDiv").appendChild(d);
     document.getElementById("resultDiv").style.display = "initial";
 }
 function handleLose(result){
+    var thisPlayer = sessionStorage.getItem("playerKey");
+    let losesRef  = database.ref('/players/'+thisPlayer);
+    let loses = 0;
+    losesRef.transaction(function(player) {
+        console.log(player.loses);
+        if (player.loses) {
+            loses = player.loses + 1;
+        }else{
+            loses=1;
+        }
+        return player.update({loses:loses});
+      });
     let d = document.createElement("p");
     d.innerHTML="You Lose!!!!" + result;
     document.getElementById("resultDiv").appendChild(d);
     document.getElementById("resultDiv").style.display = "initial";
 }
 function handleTie(){
+    var thisPlayer = sessionStorage.getItem("playerKey");
+    let tiesRef  = database.ref('/players/'+thisPlayer);
+    let ties = 0;
+    tiesRef.transaction(function(player) {
+        console.log(player.ties);
+        if (player.ties) {
+            ties = player.ties + 1;
+        }else{
+            ties=1;
+        }
+        return player.update({ties:ties});
+      });
     let d = document.createElement("p");
     d.innerHTML="You Tied!!!!";
     document.getElementById("resultDiv").appendChild(d);
     document.getElementById("resultDiv").style.display = "initial";
 }
+
+
+

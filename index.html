@@ -16,10 +16,18 @@
         <h1>Rock Paper Scissors Lizard Spock</h1>
         <h2>Let's play!</h2>
         <div id="loginDiv">
-            <button id="createUser">Create User</button>
-            <button id="loginBtn">Login</button>
-            <button id="logoutBtn">Logout</button>
+                <button id="loginBtn">Login</button>
+            <div id="userinfo">
+                <!-- display name, wins, and loses -->
+                <p>Hello! <span>Anonymouse</span></p>
+                <p>Wins: <span id="wincount">0</span></p>
+                <p>Loses: <span id="losecount">0</span></p>
+                <p>Ties: <span id="tiecount">0</span></p>
+                <button id="logoutBtn">Logout</button>
+            </div>
         </div>
+        <div id="loginpopup"></div>
+        <div id="resultDiv"></div>
         
     </header>
     <main class="container">
@@ -30,23 +38,26 @@
                     <p>List of open games:</p>
             </div>
         </div>
-        
+        <div class="row">
+                <div class="col-md-4" id="myselectiontitle"></div>
+                <div class="col-md-4" id="opponenttitle"></div>
+        </div>
         <div class="row" id = "gameDiv">
             <aside id="myselection" class="col-md-4">
                 <object id="svg-object" data="assets/images/rpsls.svg" type="image/svg+xml" class="rock"></object>
             </aside>
-            <aside id="opponent" class="col-md-4">Awaiting</aside>
+            <aside id="opponent" class="col-md-4"></aside>
             <aside id="chat" class="col-md-4">
                 <h2>Chat</h2>
                 <div id="chatMessages"></div>
-                <form>
+                <form id="chatForm">
                     <input id="chatInput" type="text">
                     <input id="chatSubmit" type="submit">
                 </form>
             </aside>
         </div>
 
-        <div id="resultDiv"></div>
+        
     </main>
 
     <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
