@@ -19,7 +19,7 @@
                 <button id="loginBtn">Login</button>
             <div id="userinfo">
                 <!-- display name, wins, and loses -->
-                <p>Hello! <span>Anonymouse</span></p>
+                <p>Hello! <span id="loggedinUserName">Anonymouse</span></p>
                 <p>Wins: <span id="wincount">0</span></p>
                 <p>Loses: <span id="losecount">0</span></p>
                 <p>Ties: <span id="tiecount">0</span></p>
@@ -27,7 +27,9 @@
             </div>
         </div>
         <div id="loginpopup"></div>
-        <div id="resultDiv"></div>
+        <div id="resultDiv">
+            <button id="restart">Try Again</button>
+        </div>
         
     </header>
     <main class="container">

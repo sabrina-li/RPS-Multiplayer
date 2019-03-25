@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 displayName: user.displayName,
                 player: user.email
             });
+            document.getElementById("loggedinUserName").innerHTML = user.displayName;
 
             sessionStorage.setItem("playerKey", user.uid);
             sessionStorage.setItem("loggedIn", true);
@@ -125,12 +126,13 @@ function signUpUser() {
 
 function loginUser() {
     //ready from form and create user
-    const password = $("#password").val();
-    const email = $("#email").val();
+    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value;
 
     auth.signInWithEmailAndPassword(email, password)
         .then(function (u) {
             // Login successful.
+            document.getElementById("loginForm").style.display = "none";
         })
         .catch(function (error) {
             // Handle Errors here.
@@ -210,5 +212,9 @@ function updateUserToDBwithName(user){
             lastname:"Unknown"
         });
     }
+
+    
+    
+    
     
 }

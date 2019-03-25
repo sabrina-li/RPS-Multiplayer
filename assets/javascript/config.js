@@ -7,7 +7,7 @@ const config = {
     messagingSenderId: "266663354042"
   };
   
-const STATE = {EMPTY:0,OPEN:1, CLOSE:2,DONE:3}
+const STATE = {RESTART:0,OPEN:1, CLOSE:2,DONE:3}
 
 firebase.initializeApp(config);
 const database = firebase.database();

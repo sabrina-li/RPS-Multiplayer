@@ -65,5 +65,6 @@ function getImage(hand){
     
     //var x = Math.abs(image.position().left) + container.width() / 2
     //var y = Math.abs(image.position().top) + container.height() / 2
+    svgObject.classList.add("singleHand");
     return svgObject;
 }

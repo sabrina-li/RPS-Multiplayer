@@ -1,6 +1,6 @@
 
 function addAnimation(){
-    var svgObject = document.getElementById('svg-object')
+    var svgObject = document.getElementById('svg-object');
     var svgDoc = svgObject.contentDocument;
     var element = svgDoc.getElementsByClassName('hand');
 
@@ -30,7 +30,7 @@ function addGameListener(thisGame){
     let myhand = false;
     let opponenthand= false;
     gameRef.on('value',function(snap){
-
+        
         let val = snap.val();
         
         if(val.state == STATE.OPEN){
@@ -60,6 +60,15 @@ function addGameListener(thisGame){
                 compareHands(myhand,opponenthand);
                 gameRef.update({state:STATE.DONE});
             }
+        }else if(val.state == STATE.RESTART){
+            gameRef.child("/player").update({[thisPlayer]:false})
+            .then(function(){
+                addAnimation();
+                addGameListener(thisGame);
+                addUserListner();
+                chatHandler(thisPlayer,thisGame);
+            });
+            
         }
         
     })
@@ -70,9 +79,10 @@ function addUserListner(){
 var thisPlayer = sessionStorage.getItem("playerKey");
 var playerRef  = database.ref('/players/'+thisPlayer);
 playerRef.on('value',function(snap){
-    document.getElementById("wincount").innerHTML = snap.wins;
-    document.getElementById("losecount").innerHTML = snap.wins;
-    document.getElementById("tiecount").innerHTML = snap.wins;
+    // console.log(snap.val().wins || 0);
+    document.getElementById("wincount").innerHTML = snap.val().wins || 0;
+    document.getElementById("losecount").innerHTML = snap.val().loses|| 0;
+    document.getElementById("tiecount").innerHTML = snap.val().ties|| 0;
 
 })
 }
@@ -83,7 +93,8 @@ function selectHand(hand){
     var gameRef = database.ref("/games/"+thisGame);
     
     document.getElementById("myselectiontitle").innerHTML="<p>You Chose: <br>"+hand.id+"</p>";
-    document.getElementById("myselection").innerHTML="";
+    document.getElementById("svg-object").style.visibility="hidden";
+    document.getElementById("svg-object").style.position="fixed";
     let w = document.getElementById("myselection").offsetWidth
     document.getElementById("myselection").style.maxHeight=w+"px";
     document.getElementById("myselection").appendChild(getImage(hand.id));
@@ -123,10 +134,10 @@ function compareHands(myhand,opponenthand){
             else{handleTie()}
             break;
         case "sissors":
-            if (opponenthand == "papper"){handleWin(RESULTS.RS);}
+            if (opponenthand == "papper"){handleWin(RESULTS.SP);}
             else if (opponenthand == "lizard"){handleWin(RESULTS.SL);}
             else if (opponenthand == "spock"){handleLose(RESULTS.SpS);}
-            else if (opponenthand == "rock"){handleLose(RESULTS);}
+            else if (opponenthand == "rock"){handleLose(RESULTS.RS);}
             else{handleTie()}
             break;
         case "lizard":
@@ -147,7 +158,25 @@ function compareHands(myhand,opponenthand){
             console.error("invalid hands",myhand,opponenthand);
             break  
     }
-    
+    document.getElementById("restart").addEventListener('click',function(){
+        document.getElementById('svg-object').style.position = "relative";
+        document.getElementById('svg-object').style.visibility = "visible";
+        let game = sessionStorage.getItem("gameKey");
+
+        
+        let handsToRemove = document.getElementsByClassName("singleHand")
+        let l = handsToRemove.length
+        for(var i = 0; i < l; i++){
+            // console.log(handsToRemove[0])
+            handsToRemove[0].outerHTML="";
+        }
+        
+        database.ref("/games/"+game).update({state:STATE.DONE});
+        
+        
+        
+    })
+
 }
 
 function handleWin(result){
@@ -156,15 +185,6 @@ function handleWin(result){
     winRef.transaction(function(wins){
         return (wins||0) +1;
     })
-    //     function(wins) {
-    //     // console.log(player.wins);
-    //     if (player.wins) {
-    //         wins = player.wins + 1;
-    //     }else{
-    //         wins=1;
-    //     }
-    //     return player.update({wins:wins});
-    //   });
     let d = document.createElement("p");
     d.innerHTML="You Win!!!!" + result;
     document.getElementById("resultDiv").appendChild(d);
@@ -172,17 +192,10 @@ function handleWin(result){
 }
 function handleLose(result){
     var thisPlayer = sessionStorage.getItem("playerKey");
-    let losesRef  = database.ref('/players/'+thisPlayer);
-    let loses = 0;
-    losesRef.transaction(function(player) {
-        console.log(player.loses);
-        if (player.loses) {
-            loses = player.loses + 1;
-        }else{
-            loses=1;
-        }
-        return player.update({loses:loses});
-      });
+    let losesRef  = database.ref('/players/'+thisPlayer).child("loses");
+    losesRef.transaction(function(loses){
+        return (loses||0) +1;
+    })
     let d = document.createElement("p");
     d.innerHTML="You Lose!!!!" + result;
     document.getElementById("resultDiv").appendChild(d);
@@ -190,17 +203,10 @@ function handleLose(result){
 }
 function handleTie(){
     var thisPlayer = sessionStorage.getItem("playerKey");
-    let tiesRef  = database.ref('/players/'+thisPlayer);
-    let ties = 0;
-    tiesRef.transaction(function(player) {
-        console.log(player.ties);
-        if (player.ties) {
-            ties = player.ties + 1;
-        }else{
-            ties=1;
-        }
-        return player.update({ties:ties});
-      });
+    let winRef  = database.ref('/players/'+thisPlayer).child("ties");
+    winRef.transaction(function(ties){
+        return (ties||0) +1;
+    })
     let d = document.createElement("p");
     d.innerHTML="You Tied!!!!";
     document.getElementById("resultDiv").appendChild(d);
