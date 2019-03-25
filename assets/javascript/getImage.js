@@ -50,21 +50,7 @@ function getImage(hand){
             
         }
     }
-    // console.log(svgObject);
-    // let div = document.getElementById("myselection");
-    // let svgobj = div.getElementsByTagName("object")[0]
-    // div.replaceChild(svgObject,svgobj);
-    // boxPos = document.getElementById("myselection").getBoundingClientRect();
-    // svgObject.style.position = "abosolute";
-    // svgObject.style.transform=`translate(${boxPos.width/2-handPos.left-handPos.width}px,
-    //     ${boxPos.height/2-handPos.top/2-handPos.height/2}px)`;
-    // svgObject.style.border="1px solid red";
-    
 
-    
-    
-    //var x = Math.abs(image.position().left) + container.width() / 2
-    //var y = Math.abs(image.position().top) + container.height() / 2
     svgObject.classList.add("singleHand");
     return svgObject;
 }

@@ -3,29 +3,9 @@ var connectedRef = database.ref(".info/connected");
 var gamesRef = database.ref("/games");
 var playerRef = database.ref("/players");
 
-//var thisPlayer = sessionStorage.getItem("playerKey");//TODO FB log in
+//TODO FB log in
 
 document.addEventListener('DOMContentLoaded',function(){
-   
-    //hide main play area
-    // document.getElementById("gameDiv").style.visibility = "hidden";
-
-    // connectedRef.on("value", function(snap) {
-    //     if (snap.val()) {
-    //         var con = playerRef.push();
-    //         con.onDisconnect().remove()
-    //         con.set({
-    //                 online:true,
-    //                 player:thisPlayer
-    //             })
-    //         thisPlayer = con.key;//TODO: on lock gin, push to DB, change this player,
-    //         sessionStorage.setItem("playerKey",thisPlayer);
-    //         console.log("this player id",thisPlayer);
-            
-    //         //TODO:remove the games when all user disconnects
-    //     }
-    // });
-
     var newGameBtn = document.getElementById('newGameBtn');
     newGameBtn.addEventListener('click',function(){
         console.log("click");
@@ -57,6 +37,8 @@ function goToGame(thisPlayer,key){
     chatHandler(thisPlayer,key);
 }
 
+
+
 gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('child_added',function(snap){
     appendToGames(snap.key,snap.val().player);
 })
@@ -64,22 +46,18 @@ gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('child_removed',function(s
     removeFromGame(snap.key);
 })
 
-
 gamesRef.orderByChild("state").equalTo(STATE.OPEN).on('value',function(snap){
     let obj = snap.val()
     if (obj !== null){
         let games=  Object.keys(obj)
         games.forEach(function(game){
-            // console.log(obj[game]);
             if (obj[game].player==null){
                 console.log("null players!");
                 gamesRef.child("/"+game).remove();
             }
         })  
     }
-    
 })
-
 
 
 
