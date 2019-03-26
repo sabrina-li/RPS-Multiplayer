@@ -3,6 +3,9 @@ var connectedRef = database.ref(".info/connected");
 var gamesRef = database.ref("/games");
 var playerRef = database.ref("/players");
 
+
+
+
 //TODO FB log in
 
 document.addEventListener('DOMContentLoaded',function(){

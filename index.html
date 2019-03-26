@@ -5,31 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Rock Papper Sissors</title>
-    <link rel="stylesheet" href="assets/css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- <link rel="stylesheet" href="assets/css/svgstyle.css" type="text/css"/> -->
 </head>
 <body>
     
     <header>
-        <h1>Rock Paper Scissors Lizard Spock</h1>
-        <h2>Let's play!</h2>
         <div id="loginDiv">
+                <p>Hello! <span id="loggedinUserName">Anonymouse</span>!</p>
                 <button id="loginBtn">Login</button>
+                <button id="logoutBtn">Logout</button>
             <div id="userinfo">
-                <!-- display name, wins, and loses -->
-                <p>Hello! <span id="loggedinUserName">Anonymouse</span></p>
+                <!-- display wins, and loses -->
                 <p>Wins: <span id="wincount">0</span></p>
                 <p>Loses: <span id="losecount">0</span></p>
-                <p>Ties: <span id="tiecount">0</span></p>
-                <button id="logoutBtn">Logout</button>
+                <p>Ties: <span id="tiecount">0</span></p>  
             </div>
         </div>
         <div id="loginpopup"></div>
         <div id="resultDiv">
             <button id="restart">Try Again</button>
         </div>
+
+        <h2>Rock Paper Scissors Lizard Spock</h2>
+        <h3>Let's play!</h3>
+        
+        
         
     </header>
     <main class="container">
@@ -37,18 +40,17 @@
             <button id="newGameBtn">Start New Game</button>
             <!-- <button id="joinGameBtn" key="-LaRAD7oDL7TIPmwCxHM">Join Game</button> -->
             <div id="games">
-                    <p>List of open games:</p>
+                    <p>OR select from the list of open games:</p>
             </div>
-        </div>
-        <div class="row">
-                <div class="col-md-4" id="myselectiontitle"></div>
-                <div class="col-md-4" id="opponenttitle"></div>
         </div>
         <div class="row" id = "gameDiv">
             <aside id="myselection" class="col-md-4">
+                <div class="col-md-4" id="myselectiontitle"> Select from below</div>
                 <object id="svg-object" data="assets/images/rpsls.svg" type="image/svg+xml" class="rock"></object>
             </aside>
-            <aside id="opponent" class="col-md-4"></aside>
+            <aside id="opponent" class="col-md-4">
+                <div class="col-md-4" id="opponenttitle">asdfasdf</div>
+            </aside>
             <aside id="chat" class="col-md-4">
                 <h2>Chat</h2>
                 <div id="chatMessages"></div>

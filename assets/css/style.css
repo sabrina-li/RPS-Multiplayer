@@ -1,3 +1,76 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+header{
+    position: relative;
+    padding: 20px;
+    height: 121px;;
+    background-color: #B8C2CC;
+}
+h2{
+    font-size: 23px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+h3{
+    font-size: 18px;
+}
+p{
+    padding: 2px;
+}
+#loginDiv{
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: 5px solid #B8C2CC; 
+    padding: 5px;
+    background: white;
+}
+#loginDiv #logoutBtn{
+    display: none;
+}
+#loginForm{
+    position:fixed; 
+    top: 20%; 
+    left: 20%; 
+    right: 20%;
+    z-index: 100;
+    background:white;
+    border:10px solid #B8C2CC;
+    padding:10px
+}
+#loginForm .loginInput{
+    width: 80%;
+    margin-bottom: 10px;
+}
+#closelogin{
+    position: absolute;
+    right:0;
+    margin-right: 10px;
+}
+#loginForm #loginnamegroup{
+    display: none;
+}
+
+.container{
+    background-color: #F1F5F8;
+    margin-top: 20px;
+    padding: 10px;
+    height: 100%;
+}
+.row{
+    /* background-color: #F1F5F8; */
+    padding: 10px;
+    height: 100%;
+}
+
+
+#resultDiv{
+    display: none;
+} 
+
+
+
 
 aside {
     position: relative; /* If you want text inside of it */
@@ -31,49 +104,8 @@ object {
     flex-wrap: wrap;
     justify-content: left;
 }
-#loginDiv #logoutBtn{
-    display: none;
-}
-#loginForm{
-    position:fixed; 
-    top: 20%; 
-    left: 20%; 
-    right: 20%;
-    z-index: 100;
-    background:white;
-    border:10px solid grey;
-    padding:10px
-}
-#loginForm .loginInput{
-    width: 80%;
-    margin-bottom: 10px;
-}
-#closelogin{
-    position: absolute;
-    right:0;
-    margin-right: 10px;
-}
-#loginForm #loginnamegroup{
-    display: none;
-}
 
 
-
- #resultDiv{
-    display: none;
-    /* position: fixed; */
-    /* opacity: 0.5; */
-    /* top:5%; */
-    /* left: 0; */
-    /* right: 0; */
-    /* padding: 70px 0; */
-    /* height: 10rem; */
-    /* background: white; 
-    border: 2px solid gray;
-    text-align: center;
-    box-shadow: 0 10px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-*/
-} 
 .blocker{
     background: white;
     text-align:center;

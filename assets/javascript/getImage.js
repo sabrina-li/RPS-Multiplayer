@@ -32,19 +32,19 @@ function getImage(hand){
             // console.log(hands[i])
             switch(hands[i].id){
                 case "spock":
-                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,400.69481,-75.870476)";
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,400.69481,-85.870476)";
                     break;
                 case "sissors":
-                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,571.15154,-163.972742)";
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,571.15154,-173.972742)";
                     break;
                 case "papper":
-                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,570.95892,0.90237)"
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,570.95892,-10.90237)"
                     break;
                 case "rock":
-                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,607.46772,180.158)"
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,607.46772,170.158)"
                     break;
                 case "lizard":
-                    hands[i].style.transform="matrix(0,-1,1,0,-80.9253589,220.54023)"
+                    hands[i].style.transform="matrix(0,0.283393,-0.283393,0,432.399766,115.24694)"
                     break;
             }
             

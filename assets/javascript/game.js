@@ -19,7 +19,7 @@ function addGameListener(thisGame) {
 
         let val = snap.val();
         if (val.state == STATE.OPEN) {
-            document.getElementById("opponent").innerHTML = "<h2>Awaiting Other Players to Join</h2>"
+            document.getElementById("opponenttitle").innerHTML = "<h2>Awaiting Other Players to Join</h2>"
         }else if (val.state == STATE.RESTART){
             document.getElementById('svg-object').style.position = "relative";
             document.getElementById('svg-object').style.visibility = "visible";
@@ -54,15 +54,16 @@ function addGameListener(thisGame) {
             });
 
             if (opponenthand == false) {
-                document.getElementById("opponent").innerHTML = "<h2>Awaiting Other Player to Choose</h2>"
+                document.getElementById("opponenttitle").innerHTML = "<h2>Awaiting Other Player to Choose</h2>"
             } else {
-                document.getElementById("opponent").innerHTML = "<h2>Hurry up! The Other Player Has Chosen</h2>"
+                document.getElementById("opponenttitle").innerHTML = "<h2>Hurry up! The Other Player Has Chosen</h2>"
             }
             if (opponenthand !== false && myhand !== false) {
                 document.getElementById("opponenttitle").innerHTML = "<p>Opponent Chose: <br>" + opponenthand + "</p>";
-                document.getElementById("opponent").innerHTML = "";
+                // document.getElementById("opponent").innerHTML = "";
                 let w = document.getElementById("opponent").offsetWidth
-                document.getElementById("opponent").style.maxHeight = w + "px";
+                console.log("offsetwidth is: ",w);
+                document.getElementById("opponent").style.maxHeight = (parseInt(w)+50) + "px";
                 document.getElementById("opponent").appendChild(getImage(opponenthand));
 
                 compareHands(myhand, opponenthand);

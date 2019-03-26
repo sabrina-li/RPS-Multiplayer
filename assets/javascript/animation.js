@@ -32,7 +32,9 @@ function selectHand(hand){
     document.getElementById("svg-object").style.visibility="hidden";
     document.getElementById("svg-object").style.position="fixed";
     let w = document.getElementById("myselection").offsetWidth
-    document.getElementById("myselection").style.maxHeight=w+"px";
+    
+    document.getElementById("myselection").style.maxHeight = (parseInt(w)+50) + "px";
+                
     document.getElementById("myselection").appendChild(getImage(hand.id));
     
 
