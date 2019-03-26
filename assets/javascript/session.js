@@ -35,8 +35,8 @@ function goToGame(thisPlayer,key){
     document.getElementById("sessionDiv").style.display = "none";
     // document.getElementById("gameDiv").removeAttribute("style");
     addAnimation();
-    addGameListener(key);
     addUserListner();
+    addGameListener(key);
     chatHandler(thisPlayer,key);
 }
 

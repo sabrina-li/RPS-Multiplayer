@@ -65,6 +65,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             sessionStorage.setItem("playerKey", user.uid);
             sessionStorage.setItem("loggedIn", true);
+
+            addUserListner();
         } else {
             // No user is signed in. set user to anounymouse
             document.getElementById("loginBtn").style.display = "initial";
@@ -143,10 +145,11 @@ function loginUser() {
 }
 
 function showError(errorCode, errorMessage) {
-    let error = $("<p>").attr("id", "errormsg");
-    error.css("color", "red");
-    error.text("Error Authenticate, code: " + errorCode + ". Error Message: " + errorMessage)
-    $("#loginForm").append(error);
+    let error = document.createElement("p")
+    error.setAttribute("id", "errormsg");
+    error.style.color = "red";
+    error.innerHTML="Error Authenticating! Error Message: " + errorMessage;
+    document.getElementById("loginForm").appendChild(error);
 }
 
 

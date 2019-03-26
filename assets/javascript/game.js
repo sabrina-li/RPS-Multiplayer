@@ -27,7 +27,7 @@ function addGameListener(thisGame) {
             //svg somehow does now show up after setting to visible and below don't work....
             setTimeout(() => {
                 addAnimation();
-            }, 1000);
+            }, 500);
             
             let handsToRemove = document.getElementsByClassName("singleHand")
             let l = handsToRemove.length
