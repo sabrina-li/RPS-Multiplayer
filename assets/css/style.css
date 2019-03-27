@@ -10,7 +10,7 @@ header{
     position: relative;
     top: 0;
     padding: 10px;
-    background-image: url(/assets/images/dark-paths.png);
+    background-image: url(assets/images/dark-paths.png);
 }
 #header{
     position: relative;
