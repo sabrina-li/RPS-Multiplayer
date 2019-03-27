@@ -9,30 +9,36 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 </head>
 <body>
     
     <header>
-        <div id="loginDiv">
-                <p>Hello! <span id="loggedinUserName">Anonymouse</span>!</p>
-                <button id="loginBtn">Login</button>
-                <button id="logoutBtn">Logout</button>
-            <div id="userinfo">
-                <!-- display wins, and loses -->
-                <p>Wins: <span id="wincount">0</span></p>
-                <p>Loses: <span id="losecount">0</span></p>
-                <p>Ties: <span id="tiecount">0</span></p>  
+        <div id="header">
+            <div id="loginDiv">
+                    <p>Hello! <span id="loggedinUserName">Anonymouse</span>!</p>
+                    <button id="loginBtn">Login</button>
+                    <button id="logoutBtn">Logout</button>
+                <div id="userinfo">
+                    <!-- display wins, and loses -->
+                    <p>Wins: <span id="wincount">0</span></p>
+                    <p>Loses: <span id="losecount">0</span></p>
+                    <p>Ties: <span id="tiecount">0</span></p>  
+                </div>
             </div>
-        </div>
-        <div id="loginpopup"></div>
-        <div id="resultDiv">
-            <button id="restart">Try Again</button>
-        </div>
+            <div id="loginpopup"></div>
+            
+            <h2>
+                <span>R<i class="far fa-hand-rock"></i>ck</span>
+                <span>P<i class="far fa-hand-paper"></i>per</span>
+                <span>Sciss<i class="far fa-hand-scissors"></i>rs</span>
+                <span>Li<i class="far fa-hand-lizard"></i>ard</span>
+                <span>Sp<i class="far fa-hand-spock"></i>ck</span>  
+            </h2>
+            <h3>Let's play!</h3>
 
-        <h2>Rock Paper Scissors Lizard Spock</h2>
-        <h3>Let's play!</h3>
         
-        
+        </div>
         
     </header>
     <main class="container">
@@ -45,20 +51,25 @@
         </div>
         <div class="row" id = "gameDiv">
             <aside id="myselection" class="col-md-4">
-                <div class="col-md-4" id="myselectiontitle"> Select from below</div>
+                <div id="myselectiontitle"> <h3>Select from below</h3> </div>
                 <object id="svg-object" data="assets/images/rpsls.svg" type="image/svg+xml" class="rock"></object>
             </aside>
             <aside id="opponent" class="col-md-4">
-                <div class="col-md-4" id="opponenttitle">asdfasdf</div>
+                <div id="opponenttitle">asdfasdf</div>
             </aside>
             <aside id="chat" class="col-md-4">
-                <h2>Chat</h2>
+                <h3>Chat</h3>
                 <div id="chatMessages"></div>
                 <form id="chatForm">
                     <input id="chatInput" type="text">
                     <input id="chatSubmit" type="submit">
                 </form>
             </aside>
+        </div>
+        <div class="row" >
+            <div id="resultDiv">
+                <button id="restart">Try Again</button>
+            </div>
         </div>
 
         
@@ -73,5 +84,6 @@
     <script src="assets/javascript/session.js"></script>
     <script src="assets/javascript/chat.js"></script>
     <script src="assets/javascript/login.js"></script>
+   
 </body>
 </html>

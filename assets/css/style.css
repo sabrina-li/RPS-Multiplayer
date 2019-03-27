@@ -1,30 +1,87 @@
+html{height: 100%;}
 body{
     font-family: 'Roboto', sans-serif;
+    color: #EFF8FF;
+    top:0;
+    background: #41567C;
+    height: 100%;
 }
 header{
     position: relative;
-    padding: 20px;
-    height: 121px;;
-    background-color: #B8C2CC;
+    top: 0;
+    padding: 10px;
+    background-image: url(/assets/images/dark-paths.png);
+}
+#header{
+    position: relative;
+    top: 0;
+    height: 130px;;
+    padding-right: 150px;
+    /* background-color: #12283A; */
+
+}
+img{
+    height: 100%
+}
+#titleimg{
+    height: 150px;;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    /* background-image: url("/assets/images/rps.png"); */
+    -moz-box-shadow:inset 0px 0px 6px 6px rgba(255,255,255,1);
+    -webkit-box-shadow:inset 0px 0px 6px 6px rgba(255,255,255,1);
+    box-shadow: 0px 0px 10px red;
+    /* width: 300px; */
+    /* height: 300px; */
 }
 h2{
-    font-size: 23px;
-    font-weight: bold;
+    height: 35px;
+    overflow: hidden;
+    font-size: 35px;
+    font-weight: 900;
     padding-bottom: 10px;
+    margin: 15px;
+    position: relative;
 }
+#header h2 span{
+    position: absolute;
+    top: 35px;
+    animation:roll 5s linear infinite;
+}
+#header h2 span:nth-child(1){
+    animation-delay: 1s;
+}
+#header h2 span:nth-child(2){
+    animation-delay: 2s;
+}
+#header h2 span:nth-child(3){
+    animation-delay: 3s;
+}
+#header h2 span:nth-child(4){
+    animation-delay: 4s;
+}
+#header h2 span:nth-child(5){
+    animation-delay: 5s;
+}
+
 h3{
-    font-size: 18px;
+    font-size: 20px;
+    padding-bottom: 10px;
+    margin: 15px;
+    position: relative;
 }
 p{
     padding: 2px;
 }
 #loginDiv{
     position: absolute;
-    right: 0;
-    top: 0;
-    border: 5px solid #B8C2CC; 
+    right: 40px;
+    top: -10px;
+    /* border: 5px solid #BCDEFA;  */
     padding: 5px;
-    background: white;
+    background: #1C3D5A;
 }
 #loginDiv #logoutBtn{
     display: none;
@@ -35,8 +92,8 @@ p{
     left: 20%; 
     right: 20%;
     z-index: 100;
-    background:white;
-    border:10px solid #B8C2CC;
+    background:#EFF8FF;
+    /* border:10px solid #41567C; */
     padding:10px
 }
 #loginForm .loginInput{
@@ -53,15 +110,12 @@ p{
 }
 
 .container{
-    background-color: #F1F5F8;
-    margin-top: 20px;
-    padding: 10px;
-    height: 100%;
+    margin-top: 10px;
+    background-color: #AFC0E1;
+    min-height: 70%;
 }
-.row{
-    /* background-color: #F1F5F8; */
-    padding: 10px;
-    height: 100%;
+#sessionDiv{
+    padding: 15px;
 }
 
 
@@ -69,16 +123,24 @@ p{
     display: none;
 } 
 
+input[type=submit],
+button{
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2779BD;
+    color:#12283A;
+}
 
-
+button:hover{
+    background-color: #3490DC;
+}
 
 aside {
     position: relative; /* If you want text inside of it */
-    border: 10px solid #b6bdc3;
-    /* background-color: red; */
-    /* width: 80%; */
-    /* padding-top:100%; */
-    /* margin: 0 auto; */   
+    border: 6px solid #12283A;
+    padding: 10px;
 }
 #gameDiv{
     visibility: hidden;
@@ -89,6 +151,11 @@ object {
     width: 100%;
     /* width: fit-content; */
 
+}
+
+#resultDiv{
+    text-align: center;
+    width: 100%;
 }
 .zoomInHand{
     width: 300%;
@@ -106,17 +173,6 @@ object {
 }
 
 
-.blocker{
-    background: white;
-    text-align:center;
-    position :fixed;
-    z-index : 1;
-    top:"20%";
-    left: 0;
-    right : 0;
-    height: 100px;
-    border: 10px solid grey;
-}
 
 
 @keyframes zoomin{
@@ -125,3 +181,49 @@ object {
 }
 
 
+@keyframes roll{
+    0%{
+        top: 35px
+    }
+    10%,15%{
+        top: 0px;
+    }
+    20%,100%{
+        top: -45px;
+    }
+}
+
+
+
+
+
+
+
+
+@media (min-width: 576px){
+    #header {
+        max-width: 540px;
+        margin-left:auto;
+        margin-right: auto; 
+    }
+}
+@media (min-width: 768px){
+    #header {
+        max-width: 720px;
+        margin-left:auto;
+        margin-right: auto; 
+    }
+}
+
+@media  screen and (min-width: 992px){
+    #header {
+        max-width: 960px;
+        margin-left:auto;
+        margin-right: auto; 
+    }
+}
+@media screen and (min-width: 1200px){
+    #header {
+        max-width: 1140px;
+    }
+}

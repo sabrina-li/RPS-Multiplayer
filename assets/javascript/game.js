@@ -19,7 +19,7 @@ function addGameListener(thisGame) {
 
         let val = snap.val();
         if (val.state == STATE.OPEN) {
-            document.getElementById("opponenttitle").innerHTML = "<h2>Awaiting Other Players to Join</h2>"
+            document.getElementById("opponenttitle").innerHTML = "<h3>Awaiting Other Players to Join</h3>"
         }else if (val.state == STATE.RESTART){
             document.getElementById('svg-object').style.position = "relative";
             document.getElementById('svg-object').style.visibility = "visible";
@@ -54,9 +54,9 @@ function addGameListener(thisGame) {
             });
 
             if (opponenthand == false) {
-                document.getElementById("opponenttitle").innerHTML = "<h2>Awaiting Other Player to Choose</h2>"
+                document.getElementById("opponenttitle").innerHTML = "<h3>Awaiting Other Player to Choose</h3>"
             } else {
-                document.getElementById("opponenttitle").innerHTML = "<h2>Hurry up! The Other Player Has Chosen</h2>"
+                document.getElementById("opponenttitle").innerHTML = "<h3>Hurry up! The Other Player Has Chosen</h3>"
             }
             if (opponenthand !== false && myhand !== false) {
                 document.getElementById("opponenttitle").innerHTML = "<p>Opponent Chose: <br>" + opponenthand + "</p>";
@@ -146,8 +146,8 @@ function handleWin(result) {
     winRef.transaction(function (wins) {
         return (wins || 0) + 1;
     })
-    let d = document.createElement("p");
-    d.innerHTML = "You Win!!!!" + result;
+    let d = document.createElement("h3");
+    d.innerHTML = "You Win!!!!  " + result;
     d.setAttribute("id","resultStr");
     document.getElementById("resultDiv").appendChild(d);
     document.getElementById("resultDiv").style.display = "initial";
@@ -158,8 +158,8 @@ function handleLose(result) {
     losesRef.transaction(function (loses) {
         return (loses || 0) + 1;
     })
-    let d = document.createElement("p");
-    d.innerHTML = "You Lose!!!!" + result;
+    let d = document.createElement("h3");
+    d.innerHTML = "You Lose!!!!  " + result;
     d.setAttribute("id","resultStr");
     document.getElementById("resultDiv").appendChild(d);
     document.getElementById("resultDiv").style.display = "initial";
@@ -170,10 +170,10 @@ function handleTie() {
     winRef.transaction(function (ties) {
         return (ties || 0) + 1;
     })
-    let d = document.createElement("p");
-    d.innerHTML = "You Tied!!!!";
+    let d = document.createElement("h3");
+    d.innerHTML = "You Tied!!!!  ";
     d.setAttribute("id","resultStr");
-    document.getElementById("resultDiv").appendChild(d);
+    document.getElementById("resultDiv").prepend(d);
     document.getElementById("resultDiv").style.display = "initial";
 }
 

@@ -9,6 +9,9 @@ var playerRef = database.ref("/players");
 //TODO FB log in
 
 document.addEventListener('DOMContentLoaded',function(){
+
+
+    
     var newGameBtn = document.getElementById('newGameBtn');
     newGameBtn.addEventListener('click',function(){
         console.log("click");
