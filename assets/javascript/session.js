@@ -76,12 +76,19 @@ function appendToGames(val,player){
     gamebtn.addEventListener('click',function(){
         // gamesRef.child(val).push({player:thisPlayer});
         let thisPlayer = sessionStorage.getItem("playerKey");
+        gamesRef.child('/'+val).onDisconnect().update(
+            {state:STATE.OPEN})
         gamesRef.child('/'+val+'/player').onDisconnect().update(
             {[thisPlayer]:null})
-        gamesRef.child('/'+val).onDisconnect().update(
-                {state:STATE.OPEN})
-        gamesRef.child('/'+val+'/player').update({[thisPlayer]:false});
-        gamesRef.child(val).update({state:STATE.CLOSE});  
+        
+        gamesRef.child('/'+val).transaction(function(game){
+            if(game.state == STATE.OPEN){
+                game.state=STATE.CLOSE;
+                game.player[thisPlayer]=false;
+            }
+            return game
+        })
+        
         goToGame(thisPlayer,val);
     })
 
